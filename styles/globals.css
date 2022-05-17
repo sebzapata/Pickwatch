@@ -20,3 +20,7 @@ a {
     max-width: 960px;
   }
 }
+
+.btn.disabled, .btn:disabled, fieldset:disabled .btn {
+  opacity: 0.3;
+}

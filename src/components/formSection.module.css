@@ -5,3 +5,7 @@
 .submitButton {
   width: 50%;
 }
+
+.errorMessage {
+  color: red;
+}

@@ -7,6 +7,8 @@ const FormSection: React.FunctionComponent = () => {
   const [email, setEmail] = useState<string>('');
   const [name, setName] = useState<string>('');
   const [message, setMessage] = useState<string>('');
+  const [isMessageValid, setIsMessageValid] = useState<boolean>(true);
+  const [isEmailValid, setIsEmailValid] = useState<boolean>(true);
 
   const submitForm = () => {
     event.preventDefault();
@@ -14,6 +16,19 @@ const FormSection: React.FunctionComponent = () => {
     console.log("name", name)
     console.log("email", email)
     console.log("message", message)
+  }
+
+  const isSubmitEnabled = (): boolean => {
+    return !!name && isValidEmail(email) && isCorrectCharacterCount(message);
+  }
+
+  const isValidEmail = (email: string): boolean => {
+    const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return emailRegex.test(email);
+  }
+
+  const isCorrectCharacterCount = (text: string): boolean => {
+    return text.length >= 20 && text.length <= 1024;
   }
 
   return (
@@ -31,11 +46,6 @@ const FormSection: React.FunctionComponent = () => {
                 }}
                 value={name}
               />
-              {/*{isBookingRefInvalid && (*/}
-              {/*  <p className={styles.errorMessage}>*/}
-              {/*    Booking reference needs to be 7 characters or more*/}
-              {/*  </p>*/}
-              {/*)}*/}
             </Form.Group>
           </Col>
           <Col xs={12} lg={6}>
@@ -47,8 +57,16 @@ const FormSection: React.FunctionComponent = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setEmail(e.target.value);
                 }}
+                onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                  setIsEmailValid(isValidEmail(e.target.value))
+                }}
                 value={email}
               />
+              {!isEmailValid && (
+                <p className={styles.errorMessage}>
+                  Email is not valid
+                </p>
+              )}
             </Form.Group>
           </Col>
           <Col>
@@ -61,13 +79,20 @@ const FormSection: React.FunctionComponent = () => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setMessage(e.target.value);
                 }}
+                onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                  setIsMessageValid(isCorrectCharacterCount(e.target.value))
+                }}
                 value={message}
-                maxLength={12}
               />
+              {!isMessageValid && (
+                <p className={styles.errorMessage}>
+                  Message needs to be between 20 and 1,024 characters
+                </p>
+              )}
             </Form.Group>
           </Col>
         </Row>
-        <Button type="submit" className={styles.submitButton}>
+        <Button type="submit" className={styles.submitButton} disabled={!isSubmitEnabled()}>
           Submit
         </Button>
       </Form>
