@@ -24,3 +24,18 @@ a {
 .btn.disabled, .btn:disabled, fieldset:disabled .btn {
   opacity: 0.3;
 }
+
+.card:not(:last-of-type) {
+  --card-height: 250px;
+  margin-bottom: calc(75px - var(--card-height));
+  height: var(--card-height);
+}
+
+.card:not(:first-of-type) {
+  box-shadow: 0 -15px 15px 0 grey;
+}
+
+.card-text {
+  height: 120px;
+  overflow: auto;
+}

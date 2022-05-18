@@ -3,9 +3,46 @@
 }
 
 .submitButton {
-  width: 50%;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+.cardsWrapper {
+  margin-bottom: 50px;
+}
+
+.headerWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+@media (min-width: 480px) {
+  .submitButton {
+    width: 50%;
+  }
 }
 
 .errorMessage {
   color: red;
+}
+
+.successMessage {
+  color: green;
+}
+
+.loadingMessage::after {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  animation: ellipsis steps(4, end) 1s infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 18px;
+    margin-right: -18px;
+  }
 }
