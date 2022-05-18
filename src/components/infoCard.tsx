@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CloseButton } from 'react-bootstrap';
 
 import styles from './formSection.module.css';
-import { FormData } from '../../types/formData';
+import { FormData } from '../types/formData';
 
 interface InfoCardProps extends FormData {
   callback: () => void;

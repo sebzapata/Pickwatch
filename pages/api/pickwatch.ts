@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import postToDB from '../../backend/postToDB';
-import { FormData } from '../../types/formData';
+import postToDB from '../../src/backend/postToDB';
+import { FormData } from '../../src/types/formData';
 
 export default async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   const formData: FormData = req.body;

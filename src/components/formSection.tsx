@@ -4,7 +4,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap';
 
 import styles from './formSection.module.css';
 import InfoCard from './infoCard';
-import { FormData } from '../../types/formData'
+import { FormData } from '../types/formData'
 
 type SubmissionStatuses = 'successful' | 'unsuccessful' | 'loading';
 
