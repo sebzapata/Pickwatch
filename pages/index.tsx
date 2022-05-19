@@ -1,8 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { Col, Container, Form, Row } from 'react-bootstrap';
-import FormSection from '../src/components/formSection';
-import Header from '../src/components/header';
+import { Col, Container } from 'react-bootstrap';
+
+import FormSection from '@src/components/formSection';
+import Header from '@src/components/header';
 
 import styles from './index.module.css';
 

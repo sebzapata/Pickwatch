@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/pickwatch.iml" filepath="$PROJECT_DIR$/.idea/pickwatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/tcapp-nextjs.iml" filepath="$PROJECT_DIR$/.idea/tcapp-nextjs.iml" />
     </modules>
   </component>
 </project>

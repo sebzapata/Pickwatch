@@ -17,19 +17,21 @@
 
 # misc
 .DS_Store
-*.pem
+*.log
+*.log.*
 
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-.pnpm-debug.log*
 
-# local env files
-.env.local
+# sonar
+.scannerwork
 
-# vercel
-.vercel
+/test/cypress/videos
+/test/cypress/screenshots
 
-# typescript
-*.tsbuildinfo
+.idea/
+.vscode/
+
+/.env.local

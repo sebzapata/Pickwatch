@@ -70,11 +70,11 @@ const FormSection: React.FunctionComponent = () => {
   }
 
   const isSubmitEnabled = (): boolean => {
-    return !!name && isValidEmail(email) && isCorrectCharacterCount(message);
+    return !!name && isValidEmail(email) && isCorrectCharacterCount(message) && submissionStatus !== 'loading';
   }
 
   const isValidEmail = (email: string): boolean => {
-    const emailRegex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    const emailRegex = /^([a-zA-Z0-9_.+-])+@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return emailRegex.test(email);
   }
 
@@ -132,7 +132,6 @@ const FormSection: React.FunctionComponent = () => {
               <Form.Label>Name</Form.Label>
               <Form.Control
                 type="text"
-                placeholder=""
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setName(e.target.value);
                   setSubmissionStatus(undefined)
@@ -146,7 +145,6 @@ const FormSection: React.FunctionComponent = () => {
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="text"
-                placeholder=""
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setEmail(e.target.value);
                   setSubmissionStatus(undefined)
@@ -169,7 +167,6 @@ const FormSection: React.FunctionComponent = () => {
               <Form.Control
                 as="textarea"
                 rows={3}
-                placeholder=""
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setMessage(e.target.value);
                   setSubmissionStatus(undefined)

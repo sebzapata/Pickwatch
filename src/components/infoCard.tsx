@@ -5,7 +5,7 @@ import styles from './formSection.module.css';
 import { FormData } from '../types/formData';
 
 interface InfoCardProps extends FormData {
-  callback: () => void;
+  callback?: () => void;
 }
 
 const InfoCard: React.FunctionComponent<InfoCardProps> = ({name, email, message, callback}) => {
