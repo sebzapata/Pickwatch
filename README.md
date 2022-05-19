@@ -1,4 +1,5 @@
 # Seb's Pickwatch Assignment
+Live site viewable at https://pickwatch.vercel.app/
 
 ## Running the project
 First, run `yarn` to install the required packages followed by `yarn dev` to start the project.  
